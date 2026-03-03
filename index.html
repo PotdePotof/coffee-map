@@ -16,15 +16,27 @@
   <div id="map"></div>
 
   <script>
-    var map = L.map('map').setView([-27.4705, 153.0260], 13);
+    var map = L.map('map').setView([0, 20], 2);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    L.marker([-27.4705, 153.0260]).addTo(map)
-      .bindPopup('Brisbane Coffee Spot ☕')
-      .openPopup();
+    // 🔥 ここからJSON読み込み
+    fetch("data.json")
+      .then(response => response.json())
+      .then(data => {
+        data.origins.forEach(origin => {
+          L.marker([origin.lat, origin.lng])
+            .addTo(map)
+            .bindPopup(`
+              <strong>${origin.region}</strong><br>
+              ${origin.country}<br>
+              Altitude: ${origin.altitude_min}–${origin.altitude_max}m
+            `);
+        });
+      })
+      .catch(error => console.error("Error loading JSON:", error));
   </script>
 </body>
 </html>

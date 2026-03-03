@@ -1,0 +1,53 @@
+{
+  "origins": [
+    {
+      "id": 1,
+      "country": "Ethiopia",
+      "region": "Yirgacheffe",
+      "lat": 6.15,
+      "lng": 38.2,
+      "altitude_min": 1800,
+      "altitude_max": 2200,
+      "varieties": [
+        {
+          "name": "Heirloom",
+          "genetic_group": "Ethiopian Landrace"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "country": "Panama",
+      "region": "Boquete",
+      "lat": 8.78,
+      "lng": -82.44,
+      "altitude_min": 1400,
+      "altitude_max": 1800,
+      "varieties": [
+        {
+          "name": "Geisha",
+          "genetic_group": "Ethiopian Landrace"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "country": "Kenya",
+      "region": "Nyeri",
+      "lat": -0.42,
+      "lng": 36.95,
+      "altitude_min": 1600,
+      "altitude_max": 2100,
+      "varieties": [
+        {
+          "name": "SL28",
+          "genetic_group": "Bourbon-derived"
+        },
+        {
+          "name": "SL34",
+          "genetic_group": "Bourbon-derived"
+        }
+      ]
+    }
+  ]
+}
