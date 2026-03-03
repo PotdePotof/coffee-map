@@ -24,19 +24,26 @@
 
     // 🔥 ここからJSON読み込み
     fetch("data.json")
-      .then(response => response.json())
-      .then(data => {
+    .then(response => response.json())
+    .then(data => {
         data.origins.forEach(origin => {
-          L.marker([origin.lat, origin.lng])
+
+        const varietyList = origin.varieties
+            .map(v => `${v.name} (${v.genetic_group})`)
+            .join("<br>");
+
+        L.marker([origin.lat, origin.lng])
             .addTo(map)
             .bindPopup(`
-              <strong>${origin.region}</strong><br>
-              ${origin.country}<br>
-              Altitude: ${origin.altitude_min}–${origin.altitude_max}m
+            <strong>${origin.region}</strong><br>
+            ${origin.country}<br>
+            Altitude: ${origin.altitude_min}–${origin.altitude_max}m<br><br>
+            <strong>Varieties:</strong><br>
+            ${varietyList}
             `);
         });
-      })
-      .catch(error => console.error("Error loading JSON:", error));
+    })
+    .catch(error => console.error("Error loading JSON:", error));
   </script>
 </body>
 </html>
