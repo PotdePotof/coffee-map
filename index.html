@@ -89,11 +89,11 @@
 
         // フィルター変更時
         filterSelect.addEventListener("change", function() {
-        renderMarkers(this.value);
+          renderMarkers(this.value);
         });
 
-     });
-    .catch(error => console.error("Error loading JSON:", error));
+     })
+     .catch(error => console.error("Error loading JSON:", error));
   </script>
 </body>
 </html>
