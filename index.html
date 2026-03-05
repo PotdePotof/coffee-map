@@ -15,7 +15,7 @@
 <body>
     <div style="position:absolute; top:10px; left:10px; z-index:1000; background:white; padding:8px; border-radius:6px;">
     <label for="varietyFilter">Filter by Variety:</label>
-    <select id="varietyFilter">
+    <select id="varietyFilter" multiple size="6">
         <option value="all">All</option>
     </select>
     </div>
@@ -51,7 +51,7 @@
             filterSelect.appendChild(option);
             });
 
-            function renderMarkers(selectedVariety) {
+            function renderMarkers(selectedVarieties) {
 
             // 既存マーカー削除
             markers.forEach(marker => map.removeLayer(marker));
@@ -59,8 +59,9 @@
 
             data.origins.forEach(origin => {
 
-                const hasVariety = origin.varieties.some(v => 
-                selectedVariety === "all" || v.name === selectedVariety
+                const hasVariety = origin.varieties.some(v =>
+                    selectedVarieties.includes("all") ||
+                    selectedVarieties.includes(v.name)
                 );
 
                 if (hasVariety) {
@@ -85,11 +86,12 @@
         }
 
         // 初期表示
-        renderMarkers("all");
+        renderMarkers(["all"]);
 
         // フィルター変更時
         filterSelect.addEventListener("change", function() {
-          renderMarkers(this.value);
+            const selectedOptions = Array.from(this.selectedOptions).map(option => option.value);
+            renderMarkers(selectedOptions);
         });
 
      })
