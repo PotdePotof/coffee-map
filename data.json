@@ -1,11 +1,11 @@
 {
-    "genetic_groups": [
-        "Ethiopian Landrace",
-        "SL",
-        "Bourbon",
-        "Typica",
-        "Catimor"
-    ],
+  "genetic_groups": [
+    "Ethiopian Landrace",
+    "SL",
+    "Bourbon",
+    "Typica",
+    "Catimor"
+  ],
 
   "origins": [
     {
@@ -49,11 +49,76 @@
       "varieties": [
         {
           "name": "SL28",
-          "genetic_group": "Bourbon-derived"
+          "genetic_group": "SL"
         },
         {
           "name": "SL34",
-          "genetic_group": "Bourbon-derived"
+          "genetic_group": "SL"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "country": "Brazil",
+      "region": "Sul de Minas",
+      "lat": -21.55,
+      "lng": -45.43,
+      "altitude_min": 900,
+      "altitude_max": 1300,
+      "varieties": [
+        {
+          "name": "Catuai",
+          "genetic_group": "Bourbon"
+        },
+        {
+          "name": "Mundo Novo",
+          "genetic_group": "Bourbon"
+        },
+        {
+          "name": "Yellow Bourbon",
+          "genetic_group": "Bourbon"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "country": "Colombia",
+      "region": "Huila",
+      "lat": 2.53,
+      "lng": -75.53,
+      "altitude_min": 1400,
+      "altitude_max": 2000,
+      "varieties": [
+        {
+          "name": "Castillo",
+          "genetic_group": "Catimor"
+        },
+        {
+          "name": "Caturra",
+          "genetic_group": "Bourbon"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "country": "Costa Rica",
+      "region": "Tarrazú",
+      "lat": 9.65,
+      "lng": -84.02,
+      "altitude_min": 1200,
+      "altitude_max": 1900,
+      "varieties": [
+        {
+          "name": "Caturra",
+          "genetic_group": "Bourbon"
+        },
+        {
+          "name": "Catuai",
+          "genetic_group": "Bourbon"
+        },
+        {
+          "name": "Costa Rica 95",
+          "genetic_group": "Catimor"
         }
       ]
     }
