@@ -32,6 +32,16 @@
     fetch("data.json")
         .then(response => response.json())
         .then(data => {
+            function getColor(group) {
+                switch(group) {
+                    case "Ethiopian Landrace": return "#2ca02c";
+                    case "SL": return "#9467bd";
+                    case "Bourbon": return "#1f77b4";
+                    case "Typica": return "#17becf";
+                    case "Catimor": return "#d62728";
+                    default: return "#7f7f7f";
+            }
+            }
 
             const filterSelect = document.getElementById("varietyFilter");
             let markers = [];
@@ -53,36 +63,42 @@
 
             function renderMarkers(selectedVarieties) {
 
-            // 既存マーカー削除
-            markers.forEach(marker => map.removeLayer(marker));
-            markers = [];
+                // 既存マーカー削除
+                markers.forEach(marker => map.removeLayer(marker));
+                markers = [];
 
-            data.origins.forEach(origin => {
+                data.origins.forEach(origin => {
 
-                const hasVariety = origin.varieties.some(v =>
-                    selectedVarieties.includes("all") ||
-                    selectedVarieties.includes(v.name)
-                );
+                    origin.varieties.forEach(v => {
 
-                if (hasVariety) {
+                    if (
+                        selectedVarieties.includes("all") ||
+                        selectedVarieties.includes(v.name)
+                    ) {
 
-                const varietyList = origin.varieties
-                    .map(v => `${v.name} (${v.genetic_group})`)
-                    .join("<br>");
+                        const marker = L.circleMarker([origin.lat, origin.lng], {
+                        radius: 8,
+                        fillColor: getColor(v.genetic_group),
+                        color: "#000",
+                        weight: 1,
+                        fillOpacity: 0.8
+                        })
+                        .addTo(map)
+                        .bindPopup(`
+                        <strong>${origin.region}</strong><br>
+                        ${origin.country}<br>
+                        Altitude: ${origin.altitude_min}–${origin.altitude_max}m<br><br>
+                        <strong>Variety:</strong> ${v.name}<br>
+                        <strong>Genetic Group:</strong> ${v.genetic_group}
+                        `);
 
-                const marker = L.marker([origin.lat, origin.lng])
-                    .addTo(map)
-                    .bindPopup(`
-                    <strong>${origin.region}</strong><br>
-                    ${origin.country}<br>
-                    Altitude: ${origin.altitude_min}–${origin.altitude_max}m<br><br>
-                    <strong>Varieties:</strong><br>
-                    ${varietyList}
-                    `);
+                        markers.push(marker);
+                    }
 
-                markers.push(marker);
-                }
-            });
+                    });
+
+                });
+
         }
 
         // 初期表示
