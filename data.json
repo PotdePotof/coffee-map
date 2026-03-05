@@ -20,6 +20,14 @@
         {
           "name": "Heirloom",
           "genetic_group": "Ethiopian Landrace"
+        },
+        {
+          "name": "Kurume",
+          "genetic_group": "Ethiopian Landrace"
+        },
+        {
+          "name": "Dega",
+          "genetic_group": "Ethiopian Landrace"
         }
       ]
     },
@@ -54,6 +62,14 @@
         {
           "name": "SL34",
           "genetic_group": "SL"
+        },
+        {
+          "name": "Ruiru 11",
+          "genetic_group": "Catimor"
+        },
+        {
+          "name": "Batian",
+          "genetic_group": "Catimor"
         }
       ]
     },
@@ -77,6 +93,14 @@
         {
           "name": "Yellow Bourbon",
           "genetic_group": "Bourbon"
+        },
+        {            
+           "name": "Arara",
+           "genetic_group": "Catimor"
+        },
+        {
+            "name": "Topazio",
+            "genetic_group": "Bourbon"
         }
       ]
     },
@@ -121,6 +145,18 @@
           "genetic_group": "Catimor"
         }
       ]
+    },
+    {
+        "id": 7,
+        "country": "El Salvador",
+        "region": "Santa Ana",
+        "lat": 13.99,
+        "lng": -89.56,
+        "altitude_min": 1200,
+        "altitude_max": 1800,
+        "varieties": [
+            { "name": "Pacamara", "genetic_group": "Bourbon" }
+        ]
     }
   ]
 }
