@@ -1,4 +1,12 @@
 {
+    "genetic_groups": [
+        "Ethiopian Landrace",
+        "SL",
+        "Bourbon",
+        "Typica",
+        "Catimor"
+    ],
+
   "origins": [
     {
       "id": 1,
